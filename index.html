@@ -5,27 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รูปเข้ม</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-gap: 10px;
+            grid-gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
         }
 
         .gallery img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            display: none; /* ซ่อนรูปภาพเริ่มต้น */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(0);
+            transition: transform 0.5s ease;
         }
 
         .show-button {
-            display: block;
-            margin: 20px auto;
             padding: 10px 20px;
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            margin: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .show-button:hover {
+            background-color: #0056b3;
+        }
+
+        .gallery img.show {
+            transform: scale(1);
         }
     </style>
 </head>
@@ -54,7 +84,6 @@
         <img src="135269.jpg" alt="Image 19">
         <img src="135270.jpg" alt="Image 20">
         <img src="135271.jpg" alt="Image 21">
-        
     </div>
     
     <!-- ปุ่มสำหรับแสดงรูปภาพ -->
@@ -66,7 +95,7 @@
             var images = document.querySelectorAll('.gallery img');
             // วนลูปผ่านรูปภาพและแสดงรูปภาพแต่ละรูป
             images.forEach(function(image) {
-                image.style.display = 'block';
+                image.classList.add('show');
             });
             // ซ่อนปุ่มเมื่อแสดงรูปภาพแล้ว
             document.querySelector('.show-button').style.display = 'none';
