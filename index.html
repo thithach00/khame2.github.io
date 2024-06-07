@@ -31,7 +31,7 @@
 </head>
 <body>
     <h1>khame lover</h1>
-    
+
     <div class="gallery">
         <img src="135252.jpg" alt="Image 1">
         <img src="135251.jpg" alt="Image 2">
@@ -54,8 +54,9 @@
         <img src="135269.jpg" alt="Image 19">
         <img src="135270.jpg" alt="Image 20">
         <img src="135271.jpg" alt="Image 21">
+
     </div>
-    
+
     <!-- ปุ่มสำหรับแสดงรูปภาพ -->
     <button class="show-button" onclick="showImages()">Show Images</button>
 
@@ -65,7 +66,7 @@
             var images = document.querySelectorAll('.gallery img');
             // วนลูปผ่านรูปภาพและแสดงรูปภาพแต่ละรูป
             images.forEach(function(image) {
-                image.classList.add('show');
+                image.style.display = 'block';
             });
             // ซ่อนปุ่มเมื่อแสดงรูปภาพแล้ว
             document.querySelector('.show-button').style.display = 'none';
