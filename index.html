@@ -17,8 +17,6 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-image: url('heart_background.jpg'); /* รูปภาพพื้นหลัง */
-            background-size: cover;
         }
 
         h1 {
@@ -135,4 +133,36 @@
                 gallery.appendChild(newImage);
 
                 // Save to localStorage
-                var images = JSON.parse(localStorage
+                var images = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+                images.push(e.target.result);
+                localStorage.setItem('uploadedImages', JSON.stringify(images));
+
+                // Apply display state
+                var isShowing = localStorage.getItem('isShowing') === 'true';
+                newImage.style.display = isShowing ? 'block' : 'none';
+            }
+            reader.readAsDataURL(file);
+        }
+
+        window.onload = function() {
+            // Load images from localStorage
+            var images = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+            var gallery = document.getElementById('gallery');
+            var isShowing = localStorage.getItem('isShowing') === 'true';
+
+            images.forEach(function(src) {
+                var newImage = document.createElement('img');
+                newImage.src = src;
+                newImage.alt = 'Uploaded Image';
+                newImage.className = 'uploaded-image';
+                newImage.style.display = isShowing ? 'block' : 'none';
+                gallery.appendChild(newImage);
+            });
+
+            // Set button text based on display state
+            var showButton = document.querySelector('.show-button');
+            showButton.textContent = isShowing ? 'Hide Images' : 'Show Images';
+        }
+    </script>
+</body>
+</html>
