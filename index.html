@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รูปเข้ม</title>
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            display: none; /* ซ่อนรูปภาพเริ่มต้น */
+        }
+
+        .show-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>khame lover</h1>
+    
+    <div class="gallery">
+        <img src="135252.jpg" alt="Image 1">
+        <img src="135251.jpg" alt="Image 2">
+        <img src="135253.jpg" alt="Image 3">
+        <img src="135254.jpg" alt="Image 4">
+        <img src="135255.jpg" alt="Image 5">
+        <img src="135256.jpg" alt="Image 6">
+        <img src="135257.jpg" alt="Image 7">
+        <img src="135258.jpg" alt="Image 8">
+        <img src="135259.jpg" alt="Image 9">
+        <img src="135260.jpg" alt="Image 10">
+        <img src="135261.jpg" alt="Image 11">
+        <img src="135262.jpg" alt="Image 12">
+        <img src="135263.jpg" alt="Image 13">
+        <img src="135264.jpg" alt="Image 14">
+        <img src="135265.jpg" alt="Image 15">
+        <img src="135266.jpg" alt="Image 16">
+        <img src="135267.jpg" alt="Image 17">
+        <img src="135268.jpg" alt="Image 18">
+        <img src="135269.jpg" alt="Image 19">
+        <img src="135270.jpg" alt="Image 20">
+        <img src="135271.jpg" alt="Image 21">
+        
+    </div>
+    
+    <!-- ปุ่มสำหรับแสดงรูปภาพ -->
+    <button class="show-button" onclick="showImages()">Show Images</button>
+
+    <script>
+        function showImages() {
+            // เลือกทุกๆ รูปภาพในคลาส 'gallery'
+            var images = document.querySelectorAll('.gallery img');
+            // วนลูปผ่านรูปภาพและแสดงรูปภาพแต่ละรูป
+            images.forEach(function(image) {
+                image.style.display = 'block';
+            });
+            // ซ่อนปุ่มเมื่อแสดงรูปภาพแล้ว
+            document.querySelector('.show-button').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
